@@ -1,0 +1,25 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Facades\Route;
+
+class $NAME$ServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        $this->loadViewsFrom(__DIR__  . '/../Resources/views', '$NAME$');
+        $this->registerWebRoutes();
+    }
+
+    public function register()
+    {
+    }
+
+    public function registerWebRoutes()
+    {
+        Route::middleware('web')->prefix('$PREFIX$')->namespace('App\Modules\$NAME$\Http\Controllers')->group(__DIR__  . '/../Routes/web.php');
+    }
+}

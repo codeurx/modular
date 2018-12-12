@@ -1,0 +1,13 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| $NAME$ Module Routes
+|--------------------------------------------------------------------------
+|
+| All the routes related to the $NAME$ module have to go in here. 
+|
+*/
+
+Route::get('/', '$CLASS$@index');
+Route::get('/$LOWERNAME$-test', '$CLASS$@$NAME$Test');

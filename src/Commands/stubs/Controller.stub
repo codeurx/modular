@@ -1,0 +1,27 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
+use App\Modules\$NAME$\Http\Models\$NAME$Model;
+
+class $CLASS$ extends Controller
+{
+    function __construct($NAME$Model $$NAME$Model )
+	{
+		$this->$NAME$Model = $$NAME$Model;
+	}
+
+    public function index()
+    {
+        return view('$NAME$::index');
+    }
+
+    public function $NAME$Test()
+    {
+        // Added just to demonstrate that models work
+    	return $this->$NAME$Model->getAny();
+    }
+}

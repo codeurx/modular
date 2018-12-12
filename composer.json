@@ -1,0 +1,43 @@
+{
+    "name": "codeurx/modular",
+    "description": "Codeurx Modular is simply a package for Laravel to help you create and manage modules.",
+    "keywords":["modular","codeurx modular","laravel","modules","module","laravel module","laravel modules","module manager","modules manager","modular"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amir Ali Salah",
+            "email": "codeurx@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "orchestra/testbench": "^3.6",
+        "laravel/framework": "5.6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codeurx\\Modular\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "classmap": ["Tests/TestCase.php"],
+        "psr-4": {
+            "Codeurx\\Modular\\Tests\\": "Tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codeurx\\Modular\\ModularServiceProvider"
+            ],
+            "aliases": {
+                "Module": "Codeurx\\Modular\\Facades\\Module"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
