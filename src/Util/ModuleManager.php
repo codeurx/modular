@@ -97,6 +97,7 @@ class ModuleManager
         $this->makeDirectory($path);
         $this->makeDirectory($path.'Http/Controllers');
         $this->makeDirectory($path.'Resources/views');
+        $this->makeDirectory($path.'Resources/views/layouts');
         $this->makeDirectory($path.'Resources/assets');
         $this->makeDirectory($path.'Resources/assets/css');
         $this->makeDirectory($path.'Resources/assets/js');

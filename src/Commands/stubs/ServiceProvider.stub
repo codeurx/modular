@@ -3,8 +3,8 @@
 namespace $NAMESPACE$;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 class $NAME$ServiceProvider extends ServiceProvider
 {
@@ -16,6 +16,7 @@ class $NAME$ServiceProvider extends ServiceProvider
 
     public function register()
     {
+        View::addLocation(app_path().'/Modules/$NAME$/Resources/views');
     }
 
     public function registerWebRoutes()
