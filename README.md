@@ -1,7 +1,7 @@
 # Codeurx Modular
 <p align="center">
 <a href="https://packagist.org/packages/codeurx/modular"><img src="https://img.shields.io/github/license/codeurx/modular.svg" alt="License"></a>
-<a href="https://travis-ci.org/codeurx/modular"><img src="https://travis-ci.org/codeurx/modular.svg?branch=v2.2" alt="Build Status"></a>
+<a href="https://travis-ci.org/codeurx/modular"><img src="https://travis-ci.org/codeurx/modular.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/codeurx/modular"><img src="https://img.shields.io/packagist/v/codeurx/modular.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/codeurx/modular"><img src="https://scrutinizer-ci.com/g/codeurx/modular/badges/quality-score.png?b=v2.2" alt="Scrutinizer Code Quality"></a>
 </p>
