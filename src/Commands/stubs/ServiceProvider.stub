@@ -22,7 +22,7 @@ class $NAME$ServiceProvider extends ServiceProvider
     public function registerWebRoutes()
     {
         $prefixes = [
-            '$LOWERNAME$'
+            '$PREFIX$'
         ];
         foreach ($prefixes as $prefix) {
             Route::middleware('web')->prefix($prefix)->namespace('App\Modules\$NAME$\Http\Controllers')->group(__DIR__  . '/../Routes/web.php');
