@@ -21,6 +21,11 @@ class $NAME$ServiceProvider extends ServiceProvider
 
     public function registerWebRoutes()
     {
-        Route::middleware('web')->prefix('$PREFIX$')->namespace('App\Modules\$NAME$\Http\Controllers')->group(__DIR__  . '/../Routes/web.php');
+        $prefixes = [
+            'str_lower($NAME$)'
+        ];
+        foreach ($prefixes as $prefix) {
+            Route::middleware('web')->prefix($prefix)->namespace('App\Modules\$NAME$\Http\Controllers')->group(__DIR__  . '/../Routes/web.php');
+        }
     }
 }
