@@ -38,11 +38,11 @@ class ModuleMigrateCommand extends Command
                 $this->error('Module '.$name.' doesn\'t have migrations.');
                 return false;
             }
-            //if($this->moduledt->ModuleExist($name)==0) {
-                //$this->error('Module "'.$name. '" does not exist!');
-                //return false;
-            //}
-            //return false;
+            if($this->moduledt->ModuleExist($name)==0) {
+                $this->error('Module "'.$name. '" does not exist!');
+                return false;
+            }
+            return false;
         }
         $modules = Module::all();
         foreach ($modules as $module) {
