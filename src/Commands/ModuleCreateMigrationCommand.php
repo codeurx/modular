@@ -3,6 +3,7 @@
 namespace Codeurx\Modular\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Illuminate\Support\Composer;
 use Illuminate\Database\Migrations\MigrationCreator;
@@ -26,6 +27,7 @@ class ModuleCreateMigrationCommand extends DatabaseBaseCommand
         parent::__construct($moduledt);
         $this->composer = $composer;
         $this->moduledt = $moduledt;
+        $this->creator = new MigrationCreator(new Filesystem(),null); 
     }
 
     public function handle()
@@ -50,8 +52,7 @@ class ModuleCreateMigrationCommand extends DatabaseBaseCommand
 
     protected function writeMigration($name, $table, $create)
     {
-        $mc = new MigrationCreator();
-        $file = pathinfo($mc->create(
+        $file = pathinfo($this->creator->create(
             $name, $this->getMigrationPath(), $table, $create
         ), PATHINFO_FILENAME);
         $this->line("<info>Created Migration:</info> {$file}");

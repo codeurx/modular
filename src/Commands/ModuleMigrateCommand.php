@@ -33,8 +33,8 @@ class ModuleMigrateCommand extends Command
     {
         if($this->argument('module')) {
             $name = Str::studly($this->argument('module'));
-            $this->migrator->migrate($module->name);
-            if(!$this->filesystem->exists('app/Modules/'.$module_name.'/Database/Migrations/')){
+            $this->migrator->migrate($name);
+            if(!$this->filesystem->exists('app/Modules/'.$name.'/Database/Migrations/')){
                 $this->error('Module '.$name.' doesn\'t have migrations.');
                 return false;
             }
