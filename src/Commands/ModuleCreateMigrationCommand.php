@@ -21,10 +21,9 @@ class ModuleCreateMigrationCommand extends DatabaseBaseCommand
 
     protected $moduledt;
 
-    public function __construct(MigrationCreator $creator, Composer $composer,ModuleData $moduledt)
+    public function __construct(Composer $composer,ModuleData $moduledt)
     {
         parent::__construct($moduledt);
-        $this->creator = $creator;
         $this->composer = $composer;
         $this->moduledt = $moduledt;
     }
@@ -51,7 +50,8 @@ class ModuleCreateMigrationCommand extends DatabaseBaseCommand
 
     protected function writeMigration($name, $table, $create)
     {
-        $file = pathinfo($this->creator->create(
+        $mc = new MigrationCreator();
+        $file = pathinfo($mc->create(
             $name, $this->getMigrationPath(), $table, $create
         ), PATHINFO_FILENAME);
         $this->line("<info>Created Migration:</info> {$file}");
