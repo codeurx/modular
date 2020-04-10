@@ -31,17 +31,14 @@ class ModuleMigrateCommand extends Command
 
     public function handle()
     {
-        if($this->argument('module')) {
-            $name = Str::studly($this->argument('module'));
-            $this->migrator->migrate($name);
-            if(!$this->filesystem->exists('app/Modules/'.$name.'/Database/Migrations/')){
-                $this->error('Module '.$name.' doesn\'t have migrations.');
-                return false;
-            }
-            if($this->moduledt->ModuleExist($name)==0) {
-                $this->error('Module "'.$name. '" does not exist!');
-                return false;
-            }
+        $name = Str::studly($this->argument('module'));
+        $this->migrator->migrate($name);
+        if($this->moduledt->ModuleExist($name)==0) {
+            $this->error('Module "'.$name. '" does not exist!');
+            return false;
+        }
+        if(!$this->filesystem->exists('app/Modules/'.$name.'/Database/Migrations/')){
+            $this->error('Module '.$name.' doesn\'t have migrations.');
             return false;
         }
         $modules = Module::all();

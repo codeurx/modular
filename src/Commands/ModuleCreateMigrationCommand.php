@@ -35,8 +35,8 @@ class ModuleCreateMigrationCommand extends DatabaseBaseCommand
         $module = Str::studly($this->input->getArgument('module'));
         $this->module = $module;
         $table = $this->input->getOption('table')?: false;
-        if($this->moduledt->ModuleExist($module)==0) {
-            $this->error('Module "'.$module. '" does not exist!; run module:create <name>');
+        if($this->moduledt->ModuleExist($module)==0){
+            $this->error('Module '.$module.' doesn\'t exist.');
             return false;
         }
         if (!$table) {

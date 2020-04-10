@@ -5,6 +5,7 @@ namespace Codeurx\Modular\Commands;
 use Illuminate\Console\Command;
 use Codeurx\Modular\Util\ModuleData;
 use Illuminate\Support\Str;
+use PHPUnit\Util\Filesystem;
 
 class ModuleMakeControllerCommand extends Command
 {
@@ -24,7 +25,10 @@ class ModuleMakeControllerCommand extends Command
     {
         $module = Str::studly($this->argument('module'));
         $controller = Str::studly($this->argument('controller'));
-        $this->module = $module;
+        if($this->moduledt->ModuleExist($module)==0){
+            $this->error('Module '.$module.' doesn\'t exist.');
+            return false;
+        }
         if($this->moduledt->ControllerExist($module,$controller)) {
             $this->error('Controller "'.$controller.'" already exist!;');
             return false;

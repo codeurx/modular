@@ -25,6 +25,10 @@ class ModuleMakeModelCommand extends Command
         $module = Str::studly($this->argument('module'));
         $model = Str::studly($this->argument('model'));
         $this->module = $module;
+        if($this->moduledt->ModuleExist($module)==0){
+            $this->error('Module '.$module.' doesn\'t exist.');
+            return false;
+        }
         if($this->moduledt->ModelExist($module,$model)) {
             $this->error('Model "'.$model.'" already exist!;');
             return false;
