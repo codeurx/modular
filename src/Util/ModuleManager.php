@@ -6,7 +6,7 @@ use Illuminate\Console\Command as Console;
 use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
 
-class ModuleManager 
+class ModuleManager
 {
     protected $name;
 
@@ -98,9 +98,8 @@ class ModuleManager
         $this->makeDirectory($path.'Http/Controllers');
         $this->makeDirectory($path.'Resources/views');
         $this->makeDirectory($path.'Resources/views/layouts');
-        $this->makeDirectory($path.'Resources/assets');
-        $this->makeDirectory($path.'Resources/assets/css');
-        $this->makeDirectory($path.'Resources/assets/js');
+        $this->makeDirectory($this->getPublicPath().'js/'.$name);
+        $this->makeDirectory($this->getPublicPath().'css/'.$name);
         $this->makeDirectory($path.'Http/Models');
         $this->makeDirectory($path.'Routes');
         $this->makeDirectory($path.'Providers');
@@ -116,6 +115,11 @@ class ModuleManager
     protected function getBasePath()
     {
         return base_path('app/Modules/'.$this->getStudly().'/');
+    }
+
+    protected function getPublicPath()
+    {
+        return base_path('public/');
     }
 
     protected function getStudly()
@@ -150,6 +154,8 @@ class ModuleManager
                 return;
             }
             $this->deleteModule($this->getBasePath());
+            $this->deleteModule($this->getPublicPath().'js/'.$this->name.'/');
+            $this->deleteModule($this->getPublicPath().'css/'.$this->name.'/');
             $this->moduledata->RemoveFromDB($this->name);
             $this->console->info("Module [$this->name] was Deleted Successfully!");
         }else{
